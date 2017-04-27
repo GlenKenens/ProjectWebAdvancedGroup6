@@ -23,21 +23,26 @@ class People extends CI_Controller {
 			$address = $this->input->post('address');
 			$telephone = $this->input->post('telephone');
 			
-			$data = $this->peoplemodel->insertperson($name, $address, $telephone);
-			echo json_encode($data);
+			$data = $this->PeopleModel->insertperson($name, $address, $telephone);
+			$this->index();
 		}
 		
 		elseif ($this->input->server('REQUEST_METHOD') == 'GET') {
 		     
 			 $personID = $this->input->get('personID');
-			 
+
 			 $deleted = $this->peoplemodel->deleteperson($personID);
 			 echo json_encode($deleted);
 		
 		}
 	}
 	
-	
+	public function deleteUser(){
+        $personID = $this->input->get('personID');
+
+        $this->PeopleModel->deleteperson($personID);
+        $this->index();
+    }
 	
 	public function user() {
 		
@@ -48,7 +53,7 @@ class People extends CI_Controller {
 			$address = $this->input->post('address');
 			$telephone = $this->input->post('telephone');
 			
-			$update = $this->peoplemodel->updatePerson($personID, $name, $address, $telephone);
+			$update = $this->PeopleModel->updatePerson($personID, $name, $address, $telephone);
 			echo json_encode($update);
 			
 	

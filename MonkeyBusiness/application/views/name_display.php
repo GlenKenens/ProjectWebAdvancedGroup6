@@ -3,11 +3,6 @@
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to Admin</title>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
 
 </head>
 <body>
@@ -43,7 +38,7 @@
 
 <h3>Create Persons</h3>
 
-   <form>
+   <form method="post" action="<?php echo base_url(); ?>index.php/People/person">
    
    <label for='name'> Name </label>
    <input type='text' name='name' id='name' size='30' /> <br>
@@ -60,7 +55,7 @@
    
    <br><br>
    
-   <form>
+   <form method="get" action="<?php echo base_url(); ?>index.php/People/deleteUser">
      <label for="edit"> Type in the id to delete/edit</label>
        <input type="text" name="personID" id="personID" size="10" /> <br>
        
@@ -90,7 +85,8 @@
    
    </div>
    
-   
+  <!--
+  mag verwijderd worden idien het via php werkt!!!!!!!!!!!
   <script>
   
   $(document).ready(function() {
@@ -181,7 +177,7 @@
 	    var telephone = $("input#edittelephone").val(); 
 	$.ajax({
 		method: "POST",
-		url: "<?php echo base_url(); ?>index.php/People/user",	
+		url: "<?php echo base_url(); ?>index.php/People/user",
 		dataType: 'JSON',
 		data: {personID: personID, name: name, address: address, telephone: telephone},
 		
@@ -244,7 +240,7 @@
   
   </script>
 
-
+-->
 
 </div>
 
