@@ -25,12 +25,12 @@ class peopleModel extends CI_Model {
 		$this->db->set('name', $name);
 		$this->db->set('address', $address);
 		$this->db->set('telephone', $telephone);
-		$this->db->insert('Person');
+		$this->db->insert('Persons');
 	}
 	
 	public function deletePerson($personID) {
 		$this->db->where('personID', $personID);
-		$this->db->delete('Person');
+		$this->db->delete('Persons');
 	}
 	
 	public function getPerson($personID) {
