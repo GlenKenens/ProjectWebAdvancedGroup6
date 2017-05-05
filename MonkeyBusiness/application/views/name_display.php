@@ -38,7 +38,7 @@
 
 <h3>Create Persons</h3>
 
-   <form method="post" action="<?php echo base_url(); ?>index.php/People/person">
+   <form method="post" action="<?php echo base_url(); ?>index.php/People/person/">
    
    <label for='name'> Name </label>
    <input type='text' name='name' id='name' size='30' /> <br>
@@ -56,19 +56,20 @@
    <br><br>
    
    <form method="get" action="<?php echo base_url(); ?>index.php/People/deleteUser">
-     <label for="edit"> Type in the id to delete/edit</label>
+     <label for="edit"> Type in the id to delete</label>
        <input type="text" name="personID" id="personID" size="10" /> <br>
        
           <input type="submit" value="Delete" id="delete" />
-             <input type="submit" value="Edit" id="edit" />
+
    </form>
    
    <br><br><br>
    
-  <div id="editBox" style="display: none;"> 
-   <form>
+
+   <form method="get" action="<?php echo base_url(); ?>index.php/People/editUser">
    
-   <input type="hidden" name="personID" id="personID" size="20" /> <br>
+       <label for="id">Person ID</label>
+       <input type="text" name="personIDedit" id="personid" size="30" /> <br>
    
      <label for="editname">Edit Name</label>
       <input type="text" name="editname" id="editname" size="30" /> <br>
@@ -83,164 +84,9 @@
    
    </form>
    
-   </div>
-   
-  <!--
-  mag verwijderd worden idien het via php werkt!!!!!!!!!!!
-  <script>
-  
-  $(document).ready(function() {
-	  
-	  $("#create").click(function(event) {
-		  event.preventDefault();
-		var name = $("input#name").val();  
-	    var address = $("input#address").val(); 
-	    var telephone = $("input#telephone").val(); 
-	$.ajax({
-		method: "POST",
-		url: "<?php echo base_url(); ?>index.php/People/person",	
-		dataType: 'JSON',
-		data: {name: name, address: address, telephone: telephone},
-		
-		success: function(data) {
-			console.log(name, address, telephone);
-			$("#data").load(location.href + " #data");
-			$("input#name").val(""); 
-			$("input#address").val(""); 
-			$("input#telephone").val("");  
-		}
-	});
-	  });
-  });
-  
-  
-  
-  
-  
-  $(document).ready(function() {
-	  $("#delete").click(function(event) {
-		  event.preventDefault();
-		var personID = $("input#personID").val();  
-	$.ajax({
-		method: "GET",
-		url: "<?php echo base_url(); ?>index.php/People/person",	
-		dataType: 'JSON',
-		data: {personID: personID},
-		success: function(data) {
-			console.log(personID);
-			$("#data").load(location.href + " #data");
-			$("#message").html("You have successfully deleted number " + personID + " Thank you");
-			$("#message").show().fadeOut(3000);
-			$("input#personID").val("");  
-		}
-	});
-	  });
-  });
-  
-  
-  
-   $(document).ready(function() {
-	  $("#edit").click(function(event) {
-		  event.preventDefault();
-		var personID = $("input#personID").val();
-	$.ajax({
-		method: "GET",
-		url: "<?php echo base_url(); ?>index.php/People/user",	
-		dataType: 'JSON',
-		data: {personID: personID},
-		
-		success: function(data) {
-			
-			$.each(data,function(personID, name, address, telephone) {
-			
-			console.log(personID, name, address, telephone);
-			$("input#personID").val(personID); 
-			$("#editBox").show();
-			$("input#editname").val(name[0]);
-			$("input#editaddress").val(name[1]);
-			$("input#edittelephone").val(name[2]);
-			});
-		}
-	});
-	  });
-  });
-  
-  
-  
-   $(document).ready(function() {
-	  
-	  $("#update").click(function(event) {
-		  event.preventDefault();
-		 var personID = $("input#personID").val();
-		var name = $("input#editname").val();  
-	    var address = $("input#editaddress").val(); 
-	    var telephone = $("input#edittelephone").val(); 
-	$.ajax({
-		method: "POST",
-		url: "<?php echo base_url(); ?>index.php/People/user",
-		dataType: 'JSON',
-		data: {personID: personID, name: name, address: address, telephone: telephone},
-		
-		success: function(data) {
-			console.log(personID, name, address, telephone);
-			$("#data").load(location.href + " #data");
-			$("#message").html("You have successfully updated " + name + " Thank you");
-			$("#message").show().fadeOut(3000);
-			$("#editBox").hide();
-		}
-	});
-	  });
-  });
-  
-  
-     $(document).ready(function() {
-		 
-		var Create = Backbone.Model.extend({
-			url: function () {
-				var link = "<?php echo base_url(); ?>index.php/People/person?name=" + this.get("name");
-				return link;
-			},
-			defaults: {
-				name: null,
-				address: null,
-				telephone: null }
-		});
-		
-		var createModel = new Create();
-		
-		var DisplayView = Backbone.View.extend({
-			el: ".container", 
-			model: createModel,
-			initialize: function () {
-				this.listenTo(this.model,"sync change",this.gotdata);
-			},
-			
-			events: {
-				"click #create" : "getdata"
-			},
-			
-			getdata: function (event) {
-				var name = $('input#name').val();
-				var address = $('input#address').val();
-				this.model.set({name: name, address: address});
-				this.model.fetch();
-			},
-			
-			gotdata: function () {
-				$('#createmsg').html('Name ' + this.model.get('name') + ' and address ' + this.model.get('address') + ' has been created').show().fadeOut(5000);
-			}
-		});
-		
-		var displayView = new DisplayView();
-		
-	 });
-  
-  
-  
-  
-  </script>
 
--->
+   
+
 
 </div>
 

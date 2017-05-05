@@ -67,6 +67,15 @@ class People extends CI_Controller {
 			 echo json_encode($edit);
 		}
 	}
+
+	public function editUser(){
+        $personID = $this->input->get('personIDedit');
+        $name = $this->input->get('editname');
+        $address = $this->input->get('editaddress');
+        $telephone = $this->input->get('edittelephone');
+        $update = $this->PeopleModel->updatePerson($personID, $name, $address, $telephone);
+        $this->index();
+    }
 	
 	
 	

@@ -36,7 +36,7 @@ class peopleModel extends CI_Model {
 	public function getPerson($personID) {
          
 		 $this->db->where('personID', $personID);
-		 $query = $this->db->get('Person');
+		 $query = $this->db->get('Persons');
 		 
 
 
@@ -59,7 +59,7 @@ class peopleModel extends CI_Model {
 		$this->db->set('name', $name);
 		$this->db->set('address', $address);
 		$this->db->set('telephone', $telephone);
-		$this->db->update('Person');
+		$this->db->update('Persons');
 	}
 	
 	
