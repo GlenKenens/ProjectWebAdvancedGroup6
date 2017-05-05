@@ -18,27 +18,6 @@ if (isset($this->session->userdata['logged_in'])) {
     <div class="container">
         <h1>Welcome to Admin!</h1>
 
-        <div id="data">
-            <table>
-
-                <?php foreach ($names as $row) { ?>
-
-                    <tr>
-                        <td><?=$row->personID?></td>
-                        <td><?=$row->name?></td>
-                        <td><?=$row->address?></td>
-                        <td><?=$row->telephone?></td>
-                    </tr>
-
-                <?php } ?>
-
-
-
-            </table>
-        </div>
-
-        <br>
-
         <p id="message"></p>
         <p id="createmsg"></p>
 

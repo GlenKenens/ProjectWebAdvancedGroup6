@@ -10,14 +10,13 @@ class People extends CI_Controller {
 
     public function index()
     {
-        $this->load->model('PeopleModel');
+        $this->load->model('login_database');
         $data['names'] = $this->PeopleModel->getPeoples();
-        $this->load->view('admin_page', $data);
+        $this->load->view('admin_page');
     }
 
     public function person() {
         $this->load->database();
-        $this->load->model('PeopleModel');
         $this->load->model('PeopleModel');
         $data['names'] = $this->PeopleModel->getPeoples();
         $this->load->view('admin_page', $data);
@@ -27,7 +26,7 @@ class People extends CI_Controller {
             $address = $this->input->post('address');
             $telephone = $this->input->post('telephone');
 
-            $data = $this->PeopleModel->insertperson($name, $address, $telephone);
+            $this->PeopleModel->insertperson($name, $address, $telephone);
             $this->index();
         }
 
@@ -59,6 +58,7 @@ class People extends CI_Controller {
 
             $update = $this->PeopleModel->updatePerson($personID, $name, $address, $telephone);
             echo json_encode($update);
+            $this->index();
 
 
         }
@@ -69,6 +69,7 @@ class People extends CI_Controller {
 
             $edit = $this->peoplemodel->getPerson($personID);
             echo json_encode($edit);
+            $this->index();
         }
     }
 
@@ -77,7 +78,7 @@ class People extends CI_Controller {
         $name = $this->input->get('editname');
         $address = $this->input->get('editaddress');
         $telephone = $this->input->get('edittelephone');
-        $update = $this->PeopleModel->updatePerson($personID, $name, $address, $telephone);
+        $this->PeopleModel->updatePerson($personID, $name, $address, $telephone);
         $this->index();
     }
 

@@ -86,7 +86,7 @@ Class User_Authentication extends CI_Controller {
                         'functie' => $result[0]->functie
                     );
                     $this->session->set_userdata('logged_in', $session_data);
-                    $this->load->model('PeopleModel');
+                    $this->load->view('admin_page');
 
 // Add user data in session
                     /**
