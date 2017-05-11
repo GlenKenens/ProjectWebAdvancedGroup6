@@ -69,6 +69,28 @@ $app->get('/api/event/{id}', function(Request $request, Response $response){
     }
 });
 
+// Get 1 person
+
+$app->get('/api/event/person/{id}', function(Request $request, Response $response){
+    $id = $request->getAttribute('id');
+
+    $sql = "SELECT * FROM events WHERE persoonid= $id";
+
+    try{
+        // Get db Object
+        $db = new db();
+        //connect
+        $db = $db->connect();
+
+        $statement = $db->query($sql);
+        $event = $statement->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($event);
+    }catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
+
 // Add event
 
 $app->post('/api/event/add', function(Request $request, Response $response){
