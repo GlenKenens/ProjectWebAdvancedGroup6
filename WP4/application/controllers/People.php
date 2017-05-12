@@ -30,14 +30,6 @@ class People extends CI_Controller {
             $this->index();
         }
 
-        elseif ($this->input->server('REQUEST_METHOD') == 'GET') {
-
-            $personID = $this->input->get('personID');
-
-            $deleted = $this->peoplemodel->deleteperson($personID);
-            echo json_encode($deleted);
-
-        }
     }
 
     public function deleteUser(){
