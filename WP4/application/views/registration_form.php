@@ -8,47 +8,43 @@ if (isset($this->session->userdata['logged_in'])) {
 ?>
 <head>
     <title>Registration Form</title>
-    <link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css">
     </head>
 <body>
-<div id="main">
-    <div id="login">
-        <h2>Registration Form</h2>
-        <hr/>
-        <?php
-        echo "<div class='error_msg'>";
-        echo validation_errors();
-        echo "</div>";
-        echo form_open('user_authentication/new_user_registration');
 
-        echo form_label('Create Username : ');
-        echo"<br/>";
-        echo form_input('username');
-        echo "<div class='error_msg'>";
-        if (isset($message_display)) {
-            echo $message_display;
-        }
-        echo "</div>";
-        echo"<br/>";
-        echo form_label('Email : ');
-        echo"<br/>";
-        $data = array(
-            'type' => 'email',
-            'name' => 'email_value'
-        );
-        echo form_input($data);
-        echo"<br/>";
-        echo"<br/>";
-        echo form_label('Password : ');
-        echo"<br/>";
-        echo form_password('password');
-        echo"<br/>";
-        echo"<br/>";
-        echo form_submit('submit', 'Sign Up');
-        echo form_close();
-        ?>
-        <a href="<?php echo base_url() ?> ">For Login Click Here</a>
+<div class="container">
+        <h1>Welcome to the Mokey Business registration form</h1>
+
+
+
+<form class="form-horizontal" method="post" action="<?php echo base_url(); ?>index.php/User_Authentication/new_user_registration">
+    <legend>Create a new account</legend>
+    <div class="form-group">
+        <label for="edit" class="col-lg-2 control-label">Username</label>
+        <div class="col-lg-10">
+            <input type="text" name="username" id="username" size="10" /> <br>
+        </div>
     </div>
+    <div class="form-group">
+        <label for="edit" class="col-lg-2 control-label">Email</label>
+        <div class="col-lg-10">
+            <input type="email" name="email_value" id="email_value" size="10" /> <br>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="edit" class="col-lg-2 control-label">Password</label>
+        <div class="col-lg-10">
+            <input type="text" name="password" id="password" size="10" /> <br>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+
+        </div>
+    </div>
+    <a href="<?php echo base_url() ?> " class="btn btn-primary">Back to login</a>
+</form>
 </div>
 </body>
 </html>
