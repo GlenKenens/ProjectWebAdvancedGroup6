@@ -26,11 +26,11 @@ $app->get('/api/events', function(Request $request, Response $response){
 
 // Get All Events within date
 
-$app->get('/api/events/?from={from}&until={until}', function(Request $request, Response $response){
-    $from = $request->getAttribute('from');
-    $until = $request->getAttribute('until');
+$app->get('/api/events/', function(Request $request, Response $response){
+    $from = $request->getParam('from');
+    $until = $request->getParam('until');
 
-    $sql = "SELECT * FROM events WHERE datum BETWEEN $from AND $until";
+    $sql = "SELECT * FROM events WHERE datum BETWEEN :from AND :until";
 
     try{
         // Get db Object
@@ -38,7 +38,10 @@ $app->get('/api/events/?from={from}&until={until}', function(Request $request, R
         //connect
         $db = $db->connect();
 
-        $statement = $db->query($sql);
+        $statement = $db->prepare($sql);
+        $statement->bindParam(':from', $from);
+        $statement->bindParam(':until', $until);
+        $statement->execute();
         $events = $statement->fetchAll(PDO::FETCH_OBJ);
         $db = null;
         echo json_encode($events);
@@ -94,10 +97,10 @@ $app->get('/api/event/person/{id}', function(Request $request, Response $respons
 // Add event
 
 $app->post('/api/event/add', function(Request $request, Response $response){
-    $persoon = $request->getParam('persoon');
+    $persoonid = $request->getParam('persoonid');
     $datum = $request->getParam('datum');
 
-    $sql = "INSERT INTO events (persoon, datum) VALUES (:persoon, :datum)";
+    $sql = "INSERT INTO events (persoonid, datum) VALUES (:persoonid, :datum)";
 
     try{
         // Get db Object
@@ -107,12 +110,59 @@ $app->post('/api/event/add', function(Request $request, Response $response){
 
         $statement = $db->prepare($sql);
 
-        $statement->bindParam(':persoon', $persoon);
+        $statement->bindParam(':persoonid', $persoonid);
         $statement->bindParam(':datum', $datum);
 
         $statement->execute();
 
-        echo '{"notice": {"text": "Event toegevoegd"}';
+        echo '{"notice": {"text": "Event added"}';
+    }catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
+
+//Delete event
+
+$app->delete('/api/event/delete/{id}', function(Request $request, Response $response){
+    $id = $request->getAttribute('id');
+
+    $sql = "DELETE FROM events WHERE eventid = $id";
+
+    try{
+        // Get db Object
+        $db = new db();
+        //connect
+        $db = $db->connect();
+        $statement = $db->prepare($sql);
+        $statement->execute();
+        echo '{"notice": {"text": "Event deleted"}';
+    }catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
+
+// Get all events for 1 person and within date
+
+$app->get('/api/person/{id}/events/', function(Request $request, Response $response){
+    $id = $request->getAttribute('id');
+    $from = $request->getParam('from');
+    $until = $request->getParam('until');
+
+    $sql = "SELECT * FROM events WHERE persoonid = $id AND datum BETWEEN :from AND :until";
+
+    try{
+        // Get db Object
+        $db = new db();
+        //connect
+        $db = $db->connect();
+
+        $statement = $db->prepare($sql);
+        $statement->bindParam(':from', $from);
+        $statement->bindParam(':until', $until);
+        $statement->execute();
+        $events = $statement->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($events);
     }catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
@@ -123,11 +173,11 @@ $app->post('/api/event/add', function(Request $request, Response $response){
 $app->put('/api/event/update/{id}', function(Request $request, Response $response){
     $id= $request->getAttribute('id');
 
-    $persoon = $request->getParam('persoon');
+    $persoonid = $request->getParam('persoonid');
     $datum = $request->getParam('datum');
 
     $sql = "UPDATE events SET
-                persoon = :persoon,
+                persoonid = :persoonid,
                 datum = :datum
              WHERE eventid = $id";
 
@@ -139,7 +189,7 @@ $app->put('/api/event/update/{id}', function(Request $request, Response $respons
 
         $statement = $db->prepare($sql);
 
-        $statement->bindParam(':persoon', $persoon);
+        $statement->bindParam(':persoonid', $persoonid);
         $statement->bindParam(':datum', $datum);
 
         $statement->execute();
