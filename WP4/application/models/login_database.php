@@ -17,7 +17,7 @@ Class Login_Database extends CI_Model {
         if ($query->num_rows() == 0) {
 
 // Query to insert data in database
-            $this->db->insert('user_login', $this->db->escape($data));
+            $this->db->insert('user_login', $this->db->escape_str($data));
             if ($this->db->affected_rows() > 0) {
                 return true;
             }

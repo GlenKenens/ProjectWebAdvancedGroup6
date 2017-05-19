@@ -2,11 +2,13 @@
 
 class People extends CI_Controller {
 
+
     function __construct() {
         parent::__construct();
         $this->load->database();
         $this->load->model('PeopleModel');
-    }
+        $this->load->library('form_validation');
+        }
 
     public function index()
     {
@@ -22,9 +24,9 @@ class People extends CI_Controller {
         $this->load->view('admin_page', $data);
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
 
-            $name = $this->input->post('name');
-            $address = $this->input->post('address');
-            $telephone = $this->input->post('telephone');
+                $name = $this->input->post('name');
+                $address = $this->input->post('address');
+                $telephone = $this->input->post('telephone');
 
             $this->PeopleModel->insertperson($name, $address, $telephone);
             $this->index();
@@ -42,16 +44,15 @@ class People extends CI_Controller {
     public function user() {
 
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
-
             $personID = $this->input->post('personID');
             $name = $this->input->post('name');
             $address = $this->input->post('address');
             $telephone = $this->input->post('telephone');
 
             $update = $this->PeopleModel->updatePerson($personID, $name, $address, $telephone);
+
             echo json_encode($update);
             $this->index();
-
 
         }
 
@@ -72,6 +73,7 @@ class People extends CI_Controller {
         $telephone = $this->input->get('edittelephone');
         $this->PeopleModel->updatePerson($personID, $name, $address, $telephone);
         $this->index();
+
     }
 
 
