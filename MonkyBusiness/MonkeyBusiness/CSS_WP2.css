@@ -1,0 +1,88 @@
+body
+{
+    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    background-image: url("aapje.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+h1
+{
+    position: relative;
+    left:40%;
+}
+#container
+{
+    position: relative;
+    left:30%;
+}
+tr:nth-child(even) {background-color: #f2f2f2}
+th, td {
+    border-bottom: 1px solid #ddd;
+   min-width: 200px;
+}
+h2
+{
+
+   color: #4B99AD;
+    position: relative;
+    left:150%;
+
+}
+#Formright
+{
+    position: relative;
+    left:34%;
+    top:-565px;
+}
+#data {
+position: relative;
+    left:29%;
+    width: 200px;
+    text-align: center;
+
+}
+
+#leftForm
+{
+    position: relative;
+    left:2%;
+    top:25%;
+}
+#RightForm
+{
+    position: relative;
+    left:18%;
+    top:-290px;
+}
+
+.form-style-1 {
+
+    max-width: 400px;
+
+    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.form-style-1 li {
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+.form-style-1 label{
+    margin:0 0 3px 0;
+    padding:0px;
+    display:block;
+    font-weight: bold;
+}
+
+.form-style-1 input[type=submit], .form-style-1 input[type=button]{
+    background: #4B99AD;
+    padding: 8px 15px 8px 15px;
+    border: none;
+    color: #fff;
+}
+.form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover {
+    background: #4691A4;
+    box-shadow: none;
+
+}
+
