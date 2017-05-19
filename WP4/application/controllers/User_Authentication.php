@@ -42,7 +42,7 @@ Class User_Authentication extends CI_Controller {
             $data = array(
                 'user_name' => $this->input->post('username'),
                 'user_email' => $this->input->post('email_value'),
-                'user_password' => $this->input->post('password'),
+                'user_password' => md5($this->input->post('password')),
                 'functie' => 'User'
             );
             $result = $this->login_database->registration_insert($data);
@@ -72,7 +72,7 @@ Class User_Authentication extends CI_Controller {
         } else {
             $data = array(
                 'username' => $this->input->post('username'),
-                'password' => $this->input->post('password')
+                'password' => md5($this->input->post('password'))
             );
             $result = $this->login_database->login($data);
             if ($result == TRUE) {

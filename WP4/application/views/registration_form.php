@@ -34,7 +34,7 @@ if (isset($this->session->userdata['logged_in'])) {
     <div class="form-group">
         <label for="edit" class="col-lg-2 control-label">Password</label>
         <div class="col-lg-10">
-            <input type="text" name="password" id="password" size="10" /> <br>
+            <input type="password" name="password" id="password" size="10" /> <br>
         </div>
     </div>
     <div class="form-group">
