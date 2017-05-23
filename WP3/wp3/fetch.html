@@ -1,0 +1,93 @@
+<html>
+<script>
+    var getData;
+    function getAll() {
+        fetch("http://192.168.17.131/~user/wp3_simple/wp3/app.php?")
+            .then(response => response.json())
+    .then(data => {
+            getData = data;
+        console.log(data);
+        document.getElementById('idG').innerHTML = data[0].id;
+        document.getElementById('naamG').innerHTML = data[0].name;
+        document.getElementById('bDG').innerHTML = data[0].date;
+    });
+    }
+
+    function getById(){
+        var urlId = document.getElementById('getId').value;
+        var getDataId;
+        fetch('getByIDUrlHier' + urlId)
+            .then(response => response.json())
+    .then(data => {
+            getDataId = data[0];
+        document.getElementById('idG').innerHTML = data[0].id;
+        document.getElementById('naamG').innerHTML = data[0].name;
+        document.getElementById('bDG').innerHTML = data[0].date;
+    })
+    }
+
+    function postData(){
+        var postData = {
+            project_Id: document.getElementById('id').value,
+            project_naam: document.getElementById('naam').value,
+            project_klantNr: document.getElementById('nr').value
+        };
+        fetch('http://localhost:3616/api/internshipassignments/company', {
+            method: 'POST',
+            body: JSON.stringify({
+                postData
+            })
+        })
+            .then(function (data) {
+                console.log('Req succesfull');
+                console.log(postData);
+            })
+            .catch(function (error) {
+                console.log('Request failure: ', error);
+            });
+    }
+
+    function afterLoaded(){
+        document.getElementById("fetchDemo").addEventListener("click",fetchDemo,false);
+        document.getElementById("getAll").addEventListener("click",getAll,false);
+        document.getElementById("postData").addEventListener("click",postData,false);
+        document.getElementById("getById").addEventListener("click",getById,false);
+    }
+    window.addEventListener("load",afterLoaded,false);
+</script>
+<body>
+
+
+<button id="getAll">Fetch demo</button>
+<button id="fetchDemo">Fetch demo</button>
+<button id="postData">Post data</button>
+</br>
+<b>GetByIdDeel:</b></br>
+Vraag een project op met id:
+<input type="text" id="getId">
+<button id="getById">GetById</button>
+</br>
+<b>Postdeel:</b>
+<div>
+    <input type="text" id="id">
+    <input type="text" id="naam">
+    <input type="text" id="nr">
+</div>
+<div id="table">
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Naam</th>
+            <th>Klantnummer</th>
+        </tr>
+        </thead>
+        <tr>
+            <td id="idG"></td>
+            <td id="naamG"></td>
+            <td id="bDG"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

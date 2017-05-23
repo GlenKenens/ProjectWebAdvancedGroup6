@@ -8,5 +8,8 @@ interface EventRepository
 
     public function findEvents();
 
-
+    /*
+    public function add(Event $event);
+    public function remove($id);
+    */
 }

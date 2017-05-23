@@ -1,0 +1,227 @@
+[
+  {
+    "_id": "5924608c8c8049fabb9b16b9",
+    "index": 0,
+    "guid": "c4d2bd49-0780-4ff4-ab83-7d37030ddd80",
+    "isActive": true,
+    "balance": "$3,876.57",
+    "picture": "http://placehold.it/32x32",
+    "age": 26,
+    "eyeColor": "blue",
+    "name": "Blackburn Beard",
+    "gender": "male",
+    "company": "PLASMOSIS",
+    "email": "blackburnbeard@plasmosis.com",
+    "phone": "+1 (810) 599-2937",
+    "address": "224 Bergen Court, Advance, Delaware, 821",
+    "about": "Cillum sunt nisi aute irure duis culpa elit quis labore ut consequat aliqua. Et duis consectetur ut laborum excepteur. Ut labore fugiat enim ut Lorem occaecat ad laboris dolore excepteur voluptate nostrud. Nisi exercitation ipsum aute consectetur anim ea eu nulla ea. Eiusmod eiusmod exercitation ex dolore id. Anim consectetur dolor enim in duis ea cillum nisi exercitation eu esse ut est.\r\n",
+    "registered": "2016-01-08T03:02:29 -01:00",
+    "latitude": 66.817146,
+    "longitude": -32.783874,
+    "tags": [
+      "id",
+      "sint",
+      "consectetur",
+      "culpa",
+      "ex",
+      "irure",
+      "nulla"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Luz Harrell"
+      },
+      {
+        "id": 1,
+        "name": "Boyd Craft"
+      },
+      {
+        "id": 2,
+        "name": "Frederick Mcintyre"
+      }
+    ],
+    "greeting": "Hello, Blackburn Beard! You have 8 unread messages.",
+    "favoriteFruit": "apple"
+  },
+  {
+    "_id": "5924608c08383b810763829f",
+    "index": 1,
+    "guid": "7401cf45-50c5-4d6b-8b4e-838a0d2791b6",
+    "isActive": true,
+    "balance": "$2,542.77",
+    "picture": "http://placehold.it/32x32",
+    "age": 40,
+    "eyeColor": "green",
+    "name": "Marcy Allen",
+    "gender": "female",
+    "company": "ZOUNDS",
+    "email": "marcyallen@zounds.com",
+    "phone": "+1 (938) 569-3616",
+    "address": "903 Nova Court, Cresaptown, Virgin Islands, 1574",
+    "about": "Sunt do tempor deserunt fugiat. Fugiat veniam duis nostrud proident anim laboris nisi esse adipisicing quis adipisicing ea do. Excepteur officia aliqua irure officia.\r\n",
+    "registered": "2017-05-15T06:07:50 -02:00",
+    "latitude": 8.401615,
+    "longitude": -0.159992,
+    "tags": [
+      "aliqua",
+      "labore",
+      "irure",
+      "aute",
+      "deserunt",
+      "eu",
+      "laboris"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Jacobs Montgomery"
+      },
+      {
+        "id": 1,
+        "name": "Blair Howard"
+      },
+      {
+        "id": 2,
+        "name": "Horn Gates"
+      }
+    ],
+    "greeting": "Hello, Marcy Allen! You have 9 unread messages.",
+    "favoriteFruit": "strawberry"
+  },
+  {
+    "_id": "5924608c9309138aed563a99",
+    "index": 2,
+    "guid": "ad09e941-261b-4c99-841b-8f9a5339a1d3",
+    "isActive": false,
+    "balance": "$3,775.55",
+    "picture": "http://placehold.it/32x32",
+    "age": 38,
+    "eyeColor": "blue",
+    "name": "Susan Graham",
+    "gender": "female",
+    "company": "JOVIOLD",
+    "email": "susangraham@joviold.com",
+    "phone": "+1 (925) 501-3025",
+    "address": "557 Franklin Avenue, Walker, Kentucky, 4407",
+    "about": "Occaecat nostrud magna exercitation eu cupidatat ullamco elit aliquip culpa ex minim. Nisi dolor ad laborum elit aliquip velit mollit. Est aliqua sunt qui do cupidatat exercitation excepteur laboris sint ea. Dolor mollit voluptate do dolore ullamco elit officia elit irure Lorem officia ut irure nostrud. Laboris deserunt quis commodo pariatur culpa aute. Quis duis fugiat enim irure esse. Ad et magna Lorem pariatur proident.\r\n",
+    "registered": "2014-07-17T04:27:49 -02:00",
+    "latitude": -10.907126,
+    "longitude": 106.588266,
+    "tags": [
+      "nostrud",
+      "duis",
+      "adipisicing",
+      "eiusmod",
+      "consequat",
+      "proident",
+      "minim"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Herman Scott"
+      },
+      {
+        "id": 1,
+        "name": "Burnett Robinson"
+      },
+      {
+        "id": 2,
+        "name": "Hammond Bolton"
+      }
+    ],
+    "greeting": "Hello, Susan Graham! You have 9 unread messages.",
+    "favoriteFruit": "banana"
+  },
+  {
+    "_id": "5924608cc31b21bf6c526847",
+    "index": 3,
+    "guid": "b1b70af3-5994-4b5d-92f9-7a9af7440b61",
+    "isActive": true,
+    "balance": "$1,639.46",
+    "picture": "http://placehold.it/32x32",
+    "age": 37,
+    "eyeColor": "blue",
+    "name": "Montgomery Terrell",
+    "gender": "male",
+    "company": "COMCUR",
+    "email": "montgomeryterrell@comcur.com",
+    "phone": "+1 (920) 543-3488",
+    "address": "114 Newport Street, Vicksburg, Tennessee, 9450",
+    "about": "Cillum id est Lorem aliquip sit culpa elit amet. Velit dolore nostrud irure laborum excepteur. Non dolore officia nostrud minim ea ullamco do ad labore ad Lorem cupidatat.\r\n",
+    "registered": "2016-11-29T04:17:49 -01:00",
+    "latitude": -68.084652,
+    "longitude": -142.196351,
+    "tags": [
+      "deserunt",
+      "aliquip",
+      "sint",
+      "labore",
+      "officia",
+      "irure",
+      "amet"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Mavis Snow"
+      },
+      {
+        "id": 1,
+        "name": "Fran Hardy"
+      },
+      {
+        "id": 2,
+        "name": "Adkins Mcclain"
+      }
+    ],
+    "greeting": "Hello, Montgomery Terrell! You have 3 unread messages.",
+    "favoriteFruit": "banana"
+  },
+  {
+    "_id": "5924608ca26a01a2fb55c9dc",
+    "index": 4,
+    "guid": "63e9303b-bf24-42d7-8879-635d37e7cea0",
+    "isActive": false,
+    "balance": "$3,933.58",
+    "picture": "http://placehold.it/32x32",
+    "age": 21,
+    "eyeColor": "green",
+    "name": "Berger Kerr",
+    "gender": "male",
+    "company": "MAGNEMO",
+    "email": "bergerkerr@magnemo.com",
+    "phone": "+1 (891) 411-2067",
+    "address": "514 Arlington Place, Blairstown, Connecticut, 356",
+    "about": "Officia officia irure nulla nisi ea duis adipisicing exercitation velit sunt aute amet. Id minim veniam cillum amet laboris. Aliquip ullamco ut do pariatur officia ad duis pariatur reprehenderit nisi exercitation excepteur mollit incididunt. Amet sint excepteur aliqua minim officia ad ipsum. Do dolore anim velit ut incididunt pariatur sit ut do amet proident aliqua sunt aute.\r\n",
+    "registered": "2014-02-24T05:18:08 -01:00",
+    "latitude": -83.721054,
+    "longitude": -90.816925,
+    "tags": [
+      "dolore",
+      "irure",
+      "adipisicing",
+      "et",
+      "et",
+      "et",
+      "commodo"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Jessica Figueroa"
+      },
+      {
+        "id": 1,
+        "name": "Wilder Marks"
+      },
+      {
+        "id": 2,
+        "name": "Soto Hancock"
+      }
+    ],
+    "greeting": "Hello, Berger Kerr! You have 9 unread messages.",
+    "favoriteFruit": "banana"
+  }
+]

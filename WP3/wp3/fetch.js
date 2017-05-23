@@ -29,13 +29,13 @@ function postData(){
     var postData = {
         project_Id: document.getElementById('postId').value,
         project_naam: document.getElementById('PostName').value,
-        project_persoon: document.getElementById('PostPerson').value
+        project_klantNr: document.getElementById('Post').value
     };
-    fetch('http://192.168.17.131/~user/wp3_simple/wp3/app.php', {
+    fetch('http://localhost:3616/api/internshipassignments/company', {
         method: 'POST',
-        body: JSON.stringify(
+        body: JSON.stringify({
             postData
-        )
+        })
     })
         .then(function (data) {
             console.log('Req succesfull');
