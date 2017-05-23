@@ -13,7 +13,9 @@ class ComposerStaticInit9e945aa33460368a3b3082ea108bdba9
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
+
             'Symfony\\Component\\Yaml\\' => 23,
+
             'Slim\\' => 5,
         ),
         'P' => 
@@ -32,10 +34,13 @@ class ComposerStaticInit9e945aa33460368a3b3082ea108bdba9
     );
 
     public static $prefixDirsPsr4 = array (
+
         'Symfony\\Component\\Yaml\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
         ),
+
+
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
@@ -67,6 +72,7 @@ class ComposerStaticInit9e945aa33460368a3b3082ea108bdba9
             ),
         ),
     );
+
 
     public static $classMap = array (
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
@@ -417,13 +423,19 @@ class ComposerStaticInit9e945aa33460368a3b3082ea108bdba9
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
     );
 
+
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit9e945aa33460368a3b3082ea108bdba9::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit9e945aa33460368a3b3082ea108bdba9::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit9e945aa33460368a3b3082ea108bdba9::$prefixesPsr0;
+
             $loader->classMap = ComposerStaticInit9e945aa33460368a3b3082ea108bdba9::$classMap;
+
+          
+
 
         }, null, ClassLoader::class);
     }

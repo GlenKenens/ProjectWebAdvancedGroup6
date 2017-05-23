@@ -8,7 +8,7 @@ Class Login_Database extends CI_Model {
     public function registration_insert($data) {
 
 // Query to check whether username already exist or not
-        $condition = "user_name =" . "'" . $data['user_name'] . "'";
+        $condition = "user_name =" . $this->db->escape($data['username']);
         $this->db->select('*');
         $this->db->from('user_login');
         $this->db->where($condition);
@@ -17,7 +17,7 @@ Class Login_Database extends CI_Model {
         if ($query->num_rows() == 0) {
 
 // Query to insert data in database
-            $this->db->insert('user_login', $data);
+            $this->db->insert('user_login', $this->db->escape_str($data));
             if ($this->db->affected_rows() > 0) {
                 return true;
             }
@@ -29,7 +29,7 @@ Class Login_Database extends CI_Model {
 // Read data using username and password
     public function login($data) {
 
-        $condition = "user_name =" . "'" . $data['username'] . "' AND " . "user_password =" . "'" . $data['password'] . "'";
+        $condition = "user_name =" .  $this->db->escape($data['username']) . " AND " . "user_password =" . $this->db->escape($data['password']);
         $this->db->select('*');
         $this->db->from('user_login');
         $this->db->where($condition);
@@ -62,5 +62,5 @@ Class Login_Database extends CI_Model {
 
 }
 
-?>
+
 

@@ -16,7 +16,8 @@ Class User_Authentication extends CI_Controller {
         $this->load->library('session');
 
 // Load database
-        $this->load->model('login_database');
+        $this->load->model('Login_database');
+
     }
 
 // Show login page
@@ -42,7 +43,7 @@ Class User_Authentication extends CI_Controller {
             $data = array(
                 'user_name' => $this->input->post('username'),
                 'user_email' => $this->input->post('email_value'),
-                'user_password' => $this->input->post('password'),
+                'user_password' => md5($this->input->post('password')),
                 'functie' => 'User'
             );
             $result = $this->login_database->registration_insert($data);
@@ -72,13 +73,13 @@ Class User_Authentication extends CI_Controller {
         } else {
             $data = array(
                 'username' => $this->input->post('username'),
-                'password' => $this->input->post('password')
+                'password' => md5($this->input->post('password'))
             );
-            $result = $this->login_database->login($data);
+            $result = $this->Login_database->login($data);
             if ($result == TRUE) {
 
                 $username = $this->input->post('username');
-                $result = $this->login_database->read_user_information($username);
+                $result = $this->Login_database->read_user_information($username);
                 if ($result != false) {
                     $session_data = array(
                         'username' => $result[0]->user_name,
@@ -86,7 +87,7 @@ Class User_Authentication extends CI_Controller {
                         'functie' => $result[0]->functie
                     );
                     $this->session->set_userdata('logged_in', $session_data);
-                    $this->load->model('PeopleModel');
+                    $this->load->view('admin_page');
 
 // Add user data in session
                     /**

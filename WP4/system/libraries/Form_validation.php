@@ -1470,7 +1470,7 @@ class CI_Form_validation {
 	/**
 	 * Valid Base64
 	 *
-	 * Tests a string for characters outside of the Base64 alphabet
+	 * tests a string for characters outside of the Base64 alphabet
 	 * as defined by RFC 2045 http://www.faqs.org/rfcs/rfc2045
 	 *
 	 * @param	string

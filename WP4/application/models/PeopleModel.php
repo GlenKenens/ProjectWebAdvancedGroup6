@@ -22,20 +22,20 @@ class peopleModel extends CI_Model {
 
     public function insertPerson($name, $address, $telephone) {
 
-        $this->db->set('name', $name);
-        $this->db->set('address', $address);
-        $this->db->set('telephone', $telephone);
-        $this->db->insert('Persons');
+        $this->db->set('name', $this->db->escape_str($name));
+        $this->db->set('address', $this->db->escape_str($address));
+        $this->db->set('telephone', $this->db->escape_str($telephone));
+        $this->db->insert('persons');
     }
 
     public function deletePerson($personID) {
-        $this->db->where('personID', $personID);
-        $this->db->delete('Persons');
+        $this->db->where('personID', $this->db->escape($personID));
+        $this->db->delete('persons');
     }
 
     public function getPerson($personID) {
 
-        $this->db->where('personID', $personID);
+        $this->db->where('personID', $this->db->escape_str($personID));
         $query = $this->db->get('persons');
 
 
@@ -50,16 +50,13 @@ class peopleModel extends CI_Model {
 
     }
 
-
-
-
     public function updatePerson($personID, $name, $address, $telephone) {
 
-        $this->db->where('personID', $personID);
-        $this->db->set('name', $name);
-        $this->db->set('address', $address);
-        $this->db->set('telephone', $telephone);
-        $this->db->update('Persons');
+        $this->db->where('personID', $this->db->escape_str($personID));
+        $this->db->set('name', $this->db->escape_str($name));
+        $this->db->set('address', $this->db->escape_str($address));
+        $this->db->set('telephone', $this->db->escape_str($telephone));
+        $this->db->update('persons');
     }
 
 

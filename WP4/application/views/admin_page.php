@@ -9,95 +9,107 @@ if (isset($this->session->userdata['logged_in'])) {
 ?>
 <head>
     <title>Admin Page</title>
-    <link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css">
 
 </head>
 <body>
 <div id="profile">
 
     <div class="container">
-        <h1>Welcome to Admin!</h1>
-
-        <div id="data">
-            <table>
-
-                <?php foreach ($names as $row) { ?>
-
-                    <tr>
-                        <td><?=$row->personID?></td>
-                        <td><?=$row->name?></td>
-                        <td><?=$row->address?></td>
-                        <td><?=$row->telephone?></td>
-                    </tr>
-
-                <?php } ?>
-
-
-
-            </table>
-        </div>
-
-        <br>
+        <h1>Welcome to the Monkey Business admin page!</h1>
 
         <p id="message"></p>
         <p id="createmsg"></p>
 
-        <br> <br><br>
-
-        <h3>Create Persons</h3>
-
-        <form method="post" action="<?php echo base_url(); ?>index.php/People/person/">
-
-            <label for='name'> Name </label>
-            <input type='text' name='name' id='name' size='30' /> <br>
-
-            <label for='address'> Address </label>
-            <input type='text' name='address' id='address' size='30' /> <br>
-
-            <label for='telephone'> Telephone </label>
-            <input type='text' name='telephone' id='telephone' size='30' /> <br>
-
-            <input type="submit" value="Create" id="create" />
-
-        </form>
-
         <br><br>
 
-        <form method="get" action="<?php echo base_url(); ?>index.php/People/deleteUser">
-            <label for="edit"> Type in the id to delete</label>
-            <input type="text" name="personID" id="personID" size="10" /> <br>
+        <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>index.php/People/person/">
+            <legend>Create a customer</legend>
+            <div class="form-group">
+            <label for='name' class="col-lg-2 control-label"> Name </label>
+                <div class="col-lg-10">
+                    <input type='text' name='name' id='name' size='30' required/> <br>
+                </div>
+            </div>
+            <div class="form-group">
+            <label for='address' class="col-lg-2 control-label"> Address </label>
+                <div class="col-lg-10">
+                    <input type='text' name='address' id='address' size='30' required/> <br>
+                </div>
+            </div>
+            <div class="form-group">
+            <label for='telephone' class="col-lg-2 control-label"> Telephone </label>
+                <div class="col-lg-10">
+                    <input type='text' name='telephone' id='telephone' size='30' required/> <br>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="submit" id="create" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
 
-            <input type="submit" value="Delete" id="delete" />
+        <br>
+
+        <form class="form-horizontal" method="get" action="<?php echo base_url(); ?>index.php/People/deleteUser">
+            <legend>Delete a customer</legend>
+            <div class="form-group">
+            <label for="edit" class="col-lg-2 control-label"> Customer ID</label>
+                <div class="col-lg-10">
+                    <input type="text" name="personID" id="personID" size="10" required/> <br>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="submit" id="delete" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+
+
+        <form class="form-horizontal" method="get" action="<?php echo base_url(); ?>index.php/People/editUser">
+            <legend>Edit a customer</legend>
+            <div class="form-group">
+            <label for="id" class="col-lg-2 control-label">Customer ID</label>
+                <div class="col-lg-10">
+                    <input type="text" name="personIDedit" id="personid" size="30" required/> <br>
+                </div>
+            </div>
+            <div class="form-group">
+            <label for="editname" class="col-lg-2 control-label">New Name</label>
+                <div class="col-lg-10">
+                    <input type="text" name="editname" id="editname" size="30" required/> <br>
+                </div>
+            </div>
+            <div class="form-group">
+            <label for="editaddress" class="col-lg-2 control-label">New Address</label>
+                <div class="col-lg-10">
+                    <input type="text" name="editaddress" id="editaddress" size="30" required/> <br>
+                </div>
+            </div>
+            <div class="form-group">
+            <label for="edittelephone" class="col-lg-2 control-label">New Telephone</label>
+                <div class="col-lg-10">
+                    <input type="text" name="edittelephone" id="edittelephone" size="30" required/> <br>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="submit" id="update" class="btn btn-primary">Update</button>
+                </div>
+            </div>
 
         </form>
 
-        <br><br><br>
-
-
-        <form method="get" action="<?php echo base_url(); ?>index.php/People/editUser">
-
-            <label for="id">Person ID</label>
-            <input type="text" name="personIDedit" id="personid" size="30" /> <br>
-
-            <label for="editname">Edit Name</label>
-            <input type="text" name="editname" id="editname" size="30" /> <br>
-
-            <label for="editname">Edit Address</label>
-            <input type="text" name="editaddress" id="editaddress" size="30" /> <br>
-
-            <label for="editname">Edit Telephone</label>
-            <input type="text" name="edittelephone" id="edittelephone" size="30" /> <br>
-
-            <input type="submit" value="Update" id="update">
-
-        </form>
 
 
 
-
-
+        <a href="logout" class="btn btn-primary">Logout</a>
     </div>
-    <b id="logout"><a href="logout">Logout</a></b>
+
 </div>
 <br/>
 </body>

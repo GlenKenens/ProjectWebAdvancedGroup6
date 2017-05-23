@@ -151,7 +151,7 @@ class CI_Utf8 {
 	/**
 	 * Is ASCII?
 	 *
-	 * Tests if a string is standard 7-bit ASCII or not.
+	 * tests if a string is standard 7-bit ASCII or not.
 	 *
 	 * @param	string	$str	String to check
 	 * @return	bool
