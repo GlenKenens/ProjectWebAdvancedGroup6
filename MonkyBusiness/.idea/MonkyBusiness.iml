@@ -14,5 +14,15 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://$MODULE_DIR$/MonkeyBusiness/phpunit.phar/" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://$MODULE_DIR$/MonkeyBusiness/phpunit.phar/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
