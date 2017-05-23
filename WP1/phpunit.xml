@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="./vendor/autoload.php"
+         color="true"
+         convertErrorsToException="True"
+         convertNoticesToException="True"
+         convertWarningsToException="True"
+         stopOnFailures="false"
+         syntaxCheck="false">
+    <testsuites>
+        <testsuite name="Unit Tests WP1">
+            <directory>./Tests/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

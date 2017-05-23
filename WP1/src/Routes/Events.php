@@ -1,7 +1,15 @@
 <?php
+
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
+
+
+require 'C:/Xampp/htdocs/WP1/vendor/autoload.php';
+require 'C:/Xampp/htdocs/WP1/src/config/db.php';
+
+
+//Bronvermelding: https://www.youtube.com/watch?v=DHUxnUX7Y2Y
 $app = new \Slim\App;
 
 // Get All Events
@@ -22,6 +30,7 @@ $app->get('/api/events', function(Request $request, Response $response){
     }catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
+
 });
 
 // Get All Events within date
@@ -48,6 +57,7 @@ $app->get('/api/events/', function(Request $request, Response $response){
     }catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
+
 });
 
 // Get 1 event
@@ -74,7 +84,7 @@ $app->get('/api/event/{id}', function(Request $request, Response $response){
 
 // Get 1 person
 
-$app->get('/api/event/person/{id}', function(Request $request, Response $response){
+$app->get('/api/events/person/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute('id');
 
     $sql = "SELECT * FROM events WHERE persoonid= $id";
@@ -198,4 +208,10 @@ $app->put('/api/event/update/{id}', function(Request $request, Response $respons
     }catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
+    return $response
+        ->withHeader('Content-Type', 'application/json')
+        ->withStatus(201)
+        ->withBody($response->getBody());
 });
+
+return $app;
