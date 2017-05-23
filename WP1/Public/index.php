@@ -1,4 +1,10 @@
 <?php
+
+//Event routes
+require "C:/Xampp/htdocs/WP1/src/Routes/Events.php";
+
+$app->run();
+
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
