@@ -11,12 +11,7 @@ class EventJsonView implements View
         if (isset($data['events'])) {
             $events = $data['events'];
             echo json_encode($events);
-           /* foreach($events as $event){
-                echo json_encode($event);
-                echo "\n";
-            }*/
-
-           /*json_encode*/($events[0]);
+         ($events[0]);
         } else {
             echo '{}';
         }
