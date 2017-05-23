@@ -7,7 +7,7 @@ $app = new \Slim\App;
 // Get All Events
 
 $app->get('/api/events', function(Request $request, Response $response){
-    $sql = "SELECT * FROM events";
+    $sql = "SELECT * FROM Events";
 
     try{
         // Get db Object
@@ -30,7 +30,7 @@ $app->get('/api/events/?from={from}&until={until}', function(Request $request, R
     $from = $request->getAttribute('from');
     $until = $request->getAttribute('until');
 
-    $sql = "SELECT * FROM events WHERE datum BETWEEN $from AND $until";
+    $sql = "SELECT * FROM Events WHERE datum BETWEEN $from AND $until";
 
     try{
         // Get db Object
@@ -52,7 +52,7 @@ $app->get('/api/events/?from={from}&until={until}', function(Request $request, R
 $app->get('/api/event/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute('id');
 
-    $sql = "SELECT * FROM events WHERE eventid= $id";
+    $sql = "SELECT * FROM Events WHERE eventid= $id";
 
     try{
         // Get db Object
@@ -74,7 +74,7 @@ $app->get('/api/event/{id}', function(Request $request, Response $response){
 $app->get('/api/event/person/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute('id');
 
-    $sql = "SELECT * FROM events WHERE persoonid= $id";
+    $sql = "SELECT * FROM Events WHERE persoonid= $id";
 
     try{
         // Get db Object
@@ -97,7 +97,7 @@ $app->post('/api/event/add', function(Request $request, Response $response){
     $persoon = $request->getParam('persoon');
     $datum = $request->getParam('datum');
 
-    $sql = "INSERT INTO events (persoon, datum) VALUES (:persoon, :datum)";
+    $sql = "INSERT INTO Events (persoon, datum) VALUES (:persoon, :datum)";
 
     try{
         // Get db Object
@@ -126,7 +126,7 @@ $app->put('/api/event/update/{id}', function(Request $request, Response $respons
     $persoon = $request->getParam('persoon');
     $datum = $request->getParam('datum');
 
-    $sql = "UPDATE events SET
+    $sql = "UPDATE Events SET
                 persoon = :persoon,
                 datum = :datum
              WHERE eventid = $id";

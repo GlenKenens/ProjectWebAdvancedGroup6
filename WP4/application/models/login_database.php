@@ -8,7 +8,7 @@ Class Login_Database extends CI_Model {
     public function registration_insert($data) {
 
 // Query to check whether username already exist or not
-        $condition = "user_name =" . $this->db->escape($data['user_name']);
+        $condition = "user_name =" . $this->db->escape($data['username']);
         $this->db->select('*');
         $this->db->from('user_login');
         $this->db->where($condition);
@@ -62,5 +62,5 @@ Class Login_Database extends CI_Model {
 
 }
 
-?>
+
 

@@ -296,7 +296,9 @@
   <component name="PhpProjectSharedConfiguration" php_language_level="7" />
   <component name="PhpUnit">
     <phpunit_settings>
-      <PhpUnitSettings load_method="CUSTOM_LOADER" />
+      <PhpUnitSettings load_method="PHPUNIT_PHAR" custom_loader_path="" phpunit_phar_path="$PROJECT_DIR$/MonkeyBusiness/phpunit.phar" />
+      <phpunit_by_deployment server_id="1c95c55e-5acd-4864-a766-7d6e15d4bb1c" load_method="PHPUNIT_PHAR" custom_loader_path="" phpunit_phar_path="/home/user/public_html/MonkyBusiness/MonkeyBusiness/phpunit.phar" />
+      <phpunit_by_interpreter interpreter_id="a71f5d4a-fb2e-46c2-a1c1-084968682026" load_method="PHPUNIT_PHAR" custom_loader_path="" phpunit_phar_path="/home/user/public_html/MonkyBusiness/MonkeyBusiness/phpunit.phar" />
     </phpunit_settings>
   </component>
 </project>

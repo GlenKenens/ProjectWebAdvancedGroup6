@@ -1,12 +1,13 @@
 
 
 <html>
-<?php
-if (isset($this->session->userdata['logged_in'])) {
+//<?php
+//if (isset($this->session->userdata['logged_in'])) {
 
-    header("location: http://localhost/login/index.php/user_authentication/user_login_process");
-}
-?>
+ //   header("location:http://192.168.116.134/~user/login/index.php/user_authentication/user_login_process");
+//}
+//?>
+
 <head>
     <title>Login Form</title>
     <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css">
@@ -32,7 +33,7 @@ if (isset($message_display)) {
 
         <h1>Welcome to the monkey business website!</h1>
         <hr/>
-        <?php echo form_open('user_authentication/user_login_process'); ?>
+        <?php echo form_open('User_Authentication/user_login_process'); ?>
         <?php
         echo "<div class='error_msg'>";
         if (isset($error_message)) {
@@ -58,7 +59,7 @@ if (isset($message_display)) {
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
                     <button type="submit" name="submit" class="btn btn-primary">Login</button>
-                    <a href="<?php echo base_url() ?>index.php/user_authentication/user_registration_show" class="btn btn-primary">Register</a>
+                    <a href="<?php echo base_url() ?>index.php/User_Authentication/user_registration_show" class="btn btn-primary">Register</a>
                     <?php echo form_close(); ?>
                 </div>
             </div>
