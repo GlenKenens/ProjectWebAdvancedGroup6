@@ -26,6 +26,8 @@ class EventController
     {
         $events = $this->eventRepository->findEvents();
         $this->view->show(['events' => $events]);
+        //header("location: ./src/view/EventsView.php");
+
     }
 
     public function handleFindEventsByPerson($person){
