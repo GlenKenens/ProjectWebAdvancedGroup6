@@ -16,7 +16,8 @@ Class User_Authentication extends CI_Controller {
         $this->load->library('session');
 
 // Load database
-        $this->load->model('login_database');
+        $this->load->model('Login_database');
+
     }
 
 // Show login page
@@ -74,11 +75,11 @@ Class User_Authentication extends CI_Controller {
                 'username' => $this->input->post('username'),
                 'password' => md5($this->input->post('password'))
             );
-            $result = $this->login_database->login($data);
+            $result = $this->Login_database->login($data);
             if ($result == TRUE) {
 
                 $username = $this->input->post('username');
-                $result = $this->login_database->read_user_information($username);
+                $result = $this->Login_database->read_user_information($username);
                 if ($result != false) {
                     $session_data = array(
                         'username' => $result[0]->user_name,

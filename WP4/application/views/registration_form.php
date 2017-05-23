@@ -1,11 +1,12 @@
 
 
 <html>
-<?php
-if (isset($this->session->userdata['logged_in'])) {
-    header("location: http://localhost/login/index.php/user_authentication/user_login_process");
-}
-?>
+//<?php
+//if (isset($this->session->userdata['logged_in'])) {
+//    header("location: http://192.168.116.134/~user/login/index.php/user_authentication/user_login_process");
+//}
+//?>
+
 <head>
     <title>Registration Form</title>
     <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css">
@@ -13,7 +14,7 @@ if (isset($this->session->userdata['logged_in'])) {
 <body>
 
 <div class="container">
-        <h1>Welcome to the Mokey Business registration form</h1>
+        <h1>Welcome to the Monkey Business registration form</h1>
 
 
 
